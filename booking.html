@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book IPL Tickets</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <h1>IPL 2026 Ticket Booking</h1>
+    <button class="menu-toggle" type="button" aria-label="Toggle navigation" aria-controls="site-nav" aria-expanded="false">☰</button>
+    <nav id="site-nav" aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="index.html#matches">Matches</a>
+      <a href="#ticket-form">Book Ticket</a>
+    </nav>
+  </header>
+
+  <main>
+    <section>
+      <h2>Book Your Ticket</h2>
+      <p>Complete the form to book your place at the match.</p>
+    </section>
+
+    <section id="ticket-form">
+      <h2>Ticket Booking Form</h2>
+      <form id="ticket-booking-form" method="post">
+        <p>
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" minlength="2" maxlength="50" required>
+        </p>
+
+        <p>
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" maxlength="100" required>
+        </p>
+
+        <p>
+          <label for="phone">Phone Number</label>
+          <input id="phone" name="phone" type="tel" minlength="10" maxlength="15"
+                 pattern="[0-9+() -]{10,15}" title="Enter 10 to 15 digits, spaces, or + ( ) -" required>
+        </p>
+
+        <p>
+          <label for="match">Select Match</label>
+          <select id="match" name="match" required>
+            <option value="match-1" data-general="800" data-premium="2000" data-vip="5000">Match 1: CSK vs MI</option>
+            <option value="match-2" data-general="900" data-premium="2200" data-vip="5500">Match 2: RCB vs KKR</option>
+            <option value="match-3" data-general="700" data-premium="1800" data-vip="4500">Match 3: RR vs SRH</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="stand">Stand Category</label>
+          <select id="stand" name="stand" required>
+            <option value="general">General</option>
+            <option value="premium">Premium</option>
+            <option value="vip">VIP</option>
+          </select>
+        </p>
+
+        <p>
+          <label for="quantity">Number of Tickets (1–10)</label>
+          <input id="quantity" name="quantity" type="number" min="1" max="10" value="1" required>
+        </p>
+
+        <fieldset>
+          <legend>Seating Preference (optional)</legend>
+          <label><input type="radio" name="preference" value="any" checked> Any seat</label>
+          <label><input type="radio" name="preference" value="aisle"> Aisle seat</label>
+        </fieldset>
+
+        <button type="submit">Confirm Booking</button>
+        <button type="reset">Reset Form</button>
+      </form>
+      <aside aria-labelledby="summary-heading">
+        <h3 id="summary-heading">Booking Summary</h3>
+        <p>Match: <strong id="summary-match">Match 1: CSK vs MI</strong></p>
+        <p>Stand: <strong id="summary-stand">General</strong></p>
+        <p>Ticket Price: <strong id="summary-price">₹800</strong></p>
+        <p>Quantity: <strong id="summary-quantity">1</strong></p>
+        <p>Total Amount: <strong id="summary-total">₹800</strong></p>
+      </aside>
+      <p>Demo form: details are not saved. Your browser checks required fields and input formats.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 IPL Ticket Booking. All rights reserved.</p>
+  </footer>
+  <div id="toast" class="toast" role="status" aria-live="polite" aria-atomic="true" hidden></div>
+</body>
+</html>
